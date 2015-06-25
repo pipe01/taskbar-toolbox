@@ -153,6 +153,7 @@
             this.btnBrowse.TabIndex = 18;
             this.btnBrowse.Text = ". . .";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // button4
             // 
@@ -162,6 +163,7 @@
             this.button4.TabIndex = 4;
             this.button4.Text = "Add";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // txtAppPath
             // 

@@ -40,9 +40,18 @@ namespace Taskbar_Toolbox
         }
         private void refreshForm()
         {
-            picIcono.BackgroundImage = selectedTb.icon;
-            txtName.Text = selectedTb.name;
-            picColor.BackColor = selectedTb.bgColor;
+            try
+            {
+                picIcono.BackgroundImage = selectedTb.icon;
+                txtName.Text = selectedTb.name;
+                picColor.BackColor = selectedTb.bgColor;
+            }
+            catch
+            {
+                picIcono.BackgroundImage = null;
+                txtName.Text = null;
+                picColor.BackColor = Color.White;
+            }
         }
         private void refreshApps()
         {
@@ -143,6 +152,19 @@ namespace Taskbar_Toolbox
         {
             refreshList();
             refreshForm();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            selectedTb.appList.Add("app", new App("App", "app", ""));
+            refreshList();
+            refreshAppList();
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+            ofdAppBrowse.ShowDialog();
+            txtAppPath.Text = ofdAppBrowse.FileName;
         }
     }
 }
