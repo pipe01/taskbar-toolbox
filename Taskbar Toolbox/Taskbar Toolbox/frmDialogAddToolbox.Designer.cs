@@ -36,6 +36,8 @@
             this.picColor = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.colorDialog1 = new System.Windows.Forms.ColorDialog();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.picIcono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
             this.SuspendLayout();
@@ -67,12 +69,14 @@
             // 
             // picIcono
             // 
+            this.picIcono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picIcono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picIcono.Location = new System.Drawing.Point(53, 36);
             this.picIcono.Name = "picIcono";
             this.picIcono.Size = new System.Drawing.Size(32, 32);
             this.picIcono.TabIndex = 3;
             this.picIcono.TabStop = false;
+            this.picIcono.Click += new System.EventHandler(this.picIcono_Click);
             // 
             // label3
             // 
@@ -92,6 +96,7 @@
             this.picColor.Size = new System.Drawing.Size(86, 30);
             this.picColor.TabIndex = 6;
             this.picColor.TabStop = false;
+            this.picColor.Click += new System.EventHandler(this.picColor_Click);
             // 
             // button1
             // 
@@ -112,6 +117,10 @@
             this.button2.Text = "Cancel";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // frmDialogAddToolbox
             // 
@@ -147,5 +156,7 @@
         private System.Windows.Forms.PictureBox picColor;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ColorDialog colorDialog1;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

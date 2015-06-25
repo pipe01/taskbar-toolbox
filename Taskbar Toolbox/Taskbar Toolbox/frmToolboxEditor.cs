@@ -88,7 +88,11 @@ namespace Taskbar_Toolbox
 
                 refreshForm();
                 refreshList();
-            } catch {  }
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         private void listToolboxes_SelectedIndexChanged(object sender, EventArgs e)
@@ -111,7 +115,13 @@ namespace Taskbar_Toolbox
         private void btnAddToolbox_Click(object sender, EventArgs e)
         {
             //new frmDialogAddToolbox().Show
-            new frmDialogAddToolbox().ShowDialog();
+            frmDialogAddToolbox form;
+            form = new frmDialogAddToolbox();
+            form.ShowDialog();
+            toolboxList.Add(form.result);
+            this.selectedTb = form.result;
+            refreshList();
+            refreshForm();
         }
     }
 }

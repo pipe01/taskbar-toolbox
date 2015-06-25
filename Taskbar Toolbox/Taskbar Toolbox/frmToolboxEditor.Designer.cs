@@ -188,6 +188,7 @@
             // 
             // picAppIcon
             // 
+            this.picAppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picAppIcon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picAppIcon.Location = new System.Drawing.Point(242, 90);
             this.picAppIcon.Name = "picAppIcon";
@@ -256,6 +257,7 @@
             // 
             // picIcono
             // 
+            this.picIcono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picIcono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picIcono.Location = new System.Drawing.Point(12, 22);
             this.picIcono.Name = "picIcono";
