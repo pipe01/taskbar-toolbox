@@ -1,6 +1,6 @@
 ﻿namespace Taskbar_Toolbox
 {
-    partial class txtName
+    partial class frmToolboxEditor
     {
         /// <summary>
         /// Required designer variable.
@@ -45,11 +45,12 @@
             this.label1 = new System.Windows.Forms.Label();
             this.picColor = new System.Windows.Forms.PictureBox();
             this.picIcono = new System.Windows.Forms.PictureBox();
-            this.txtNombre = new System.Windows.Forms.TextBox();
+            this.txtName = new System.Windows.Forms.TextBox();
             this.ofdAppBrowse = new System.Windows.Forms.OpenFileDialog();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAppIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
@@ -88,6 +89,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label6);
             this.groupBox1.Controls.Add(this.button3);
             this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.btnBrowse);
@@ -104,7 +106,7 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.picColor);
             this.groupBox1.Controls.Add(this.picIcono);
-            this.groupBox1.Controls.Add(this.txtNombre);
+            this.groupBox1.Controls.Add(this.txtName);
             this.groupBox1.Location = new System.Drawing.Point(138, 12);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(330, 358);
@@ -225,12 +227,12 @@
             this.picIcono.TabIndex = 5;
             this.picIcono.TabStop = false;
             // 
-            // txtNombre
+            // txtName
             // 
-            this.txtNombre.Location = new System.Drawing.Point(50, 27);
-            this.txtNombre.Name = "txtNombre";
-            this.txtNombre.Size = new System.Drawing.Size(216, 20);
-            this.txtNombre.TabIndex = 4;
+            this.txtName.Location = new System.Drawing.Point(50, 34);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(216, 20);
+            this.txtName.TabIndex = 4;
             // 
             // button3
             // 
@@ -260,16 +262,27 @@
             this.button5.Text = "Remove";
             this.button5.UseVisualStyleBackColor = true;
             // 
-            // txtName
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(50, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Toolbox name";
+            // 
+            // frmToolboxEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(480, 386);
+            this.ClientSize = new System.Drawing.Size(480, 382);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.listToolboxes);
-            this.Name = "txtName";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.Name = "frmToolboxEditor";
             this.Text = "Taskbar Toolbox";
             this.Load += new System.EventHandler(this.frmToolboxEditor_Load);
             this.groupBox1.ResumeLayout(false);
@@ -297,7 +310,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox picColor;
         private System.Windows.Forms.PictureBox picIcono;
-        private System.Windows.Forms.TextBox txtNombre;
+        private System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Button btnBrowse;
         private System.Windows.Forms.TextBox txtAppPath;
         private System.Windows.Forms.Label label5;
@@ -305,5 +318,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label6;
     }
 }

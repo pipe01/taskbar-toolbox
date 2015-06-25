@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Taskbar_Toolbox
 {
-    public partial class txtName : Form
+    public partial class frmToolboxEditor : Form
     {
-        public txtName()
+        public frmToolboxEditor()
         {
             InitializeComponent();
         }
@@ -46,24 +46,32 @@ namespace Taskbar_Toolbox
         }
         private void refreshForm()
         {
-            lbApps.Items.Clear();
             picIcono.BackgroundImage = selectedTb.icon;
-            txtNombre.Text = selectedTb.name;
+            txtName.Text = selectedTb.name;
             picColor.BackColor = selectedTb.bgColor;
-            foreach (App item in selectedTb.appList.Values)
-            {
-                lbApps.Items.Add(item.id);
-            }
+        }
+        private void refreshApps()
+        {
             txtAppId.Text = selectedApp.id;
             txtAppName.Text = selectedApp.name;
             txtAppPath.Text = selectedApp.path;
-            
+        }
+        private void refreshAppList()
+        {
+            if (selectedTb != null)
+            {
+                lbApps.Items.Clear();
+                foreach (App item in selectedTb.appList.Values)
+                {
+                    lbApps.Items.Add(item.id);
+                }
+            }
         }
         private void cleanForm()
         {
             lbApps.Items.Clear();
             picIcono.BackgroundImage = null;
-            txtNombre.Text = null;
+            txtName.Text = null;
             picColor.BackColor = Color.White;
             txtAppId.Text = null;
             txtAppName.Text = null;
@@ -71,24 +79,37 @@ namespace Taskbar_Toolbox
         }
         private void saveChanges()
         {
-            selectedApp.name = txtAppName.Text;
-            selectedApp.id = txtAppId.Text;
-            selectedApp.path = txtAppPath.Text;
-            selectedTb.save();
-            refreshForm();
-            refreshList();
+            try
+            {
+                if (selectedApp != null)
+                {
+                    selectedApp.name = txtAppName.Text;
+                    selectedApp.id = txtAppId.Text;
+                    selectedApp.path = txtAppPath.Text;
+                }
+
+                selectedTb.icon = picIcono.BackgroundImage;
+                selectedTb.name = txtName.Text;
+                selectedTb.bgColor = picColor.BackColor;
+
+                selectedTb.save();
+
+                refreshForm();
+                refreshList();
+            } catch {  }
         }
 
         private void listToolboxes_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.selectedTb = toolboxList.getFromName((string) listToolboxes.SelectedItem);
             refreshForm();
+            refreshAppList();
         }
 
         private void lbApps_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.selectedApp = selectedTb.appList[(string) lbApps.SelectedItem];
-            refreshForm();
+            refreshApps();
         }
 
         private void txtAppId_TextChanged(object sender, EventArgs e)

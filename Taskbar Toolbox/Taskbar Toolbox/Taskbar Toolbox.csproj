@@ -57,6 +57,12 @@
     <Compile Include="Controls\AppControl.Designer.cs">
       <DependentUpon>AppControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDialogAddToolbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDialogAddToolbox.Designer.cs">
+      <DependentUpon>frmDialogAddToolbox.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmToolboxEditor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -79,6 +85,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controls\AppControl.resx">
       <DependentUpon>AppControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDialogAddToolbox.resx">
+      <DependentUpon>frmDialogAddToolbox.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmToolboxEditor.resx">
       <DependentUpon>frmToolboxEditor.cs</DependentUpon>

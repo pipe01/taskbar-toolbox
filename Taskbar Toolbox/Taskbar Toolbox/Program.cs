@@ -17,7 +17,7 @@ namespace Taskbar_Toolbox
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new txtName());
+            Application.Run(new frmToolboxEditor());
         }
     }
 }

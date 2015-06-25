@@ -10,13 +10,20 @@ namespace Taskbar_Toolbox
 {
     public class Toolbox
     {
-        public string name;
+        public string name, oldName;
         public Dictionary<string, App> appList = new Dictionary<string,App>();
         public System.Drawing.Color bgColor;
         public System.Drawing.Image icon;
 
+        public void setName(string newName)
+        {
+            oldName = name;
+            name = newName;
+        }
+
         public void save()
         {
+            System.IO.Directory.Move("./toolboxes/" + this.oldName, "./toolboxes/" + this.name);
             toolbox2xml(this, "./toolboxes/" + this.name + "/toolbox.xml");
         }
 
@@ -42,6 +49,7 @@ namespace Taskbar_Toolbox
                         writer.WriteEndElement();
                     writer.WriteEndElement(); // -Toolbox
                 writer.WriteEndDocument();
+                writer.Close();
             }
         }
 
