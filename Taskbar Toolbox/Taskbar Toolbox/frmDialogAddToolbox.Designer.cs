@@ -121,6 +121,7 @@
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "All files (*.*)|*.*|PNG Images (*.png)|*.png";
             // 
             // frmDialogAddToolbox
             // 
@@ -138,7 +139,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "frmDialogAddToolbox";
             this.Text = "Create toolbox";
-            this.Load += new System.EventHandler(this.frmDialogAddToolbox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.picIcono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).EndInit();
             this.ResumeLayout(false);

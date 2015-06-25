@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.Drawing;
+using System.IO;
 
 namespace Taskbar_Toolbox
 {
@@ -17,13 +18,26 @@ namespace Taskbar_Toolbox
 
         public void setName(string newName)
         {
-            oldName = name;
-            name = newName;
+            if (name == null)
+            {
+                oldName = newName;
+                name = newName;
+            }
+            else
+            {
+                oldName = name;
+                name = newName;
+            } 
         }
 
         public void save()
         {
-            System.IO.Directory.Move("./toolboxes/" + this.oldName, "./toolboxes/" + this.name);
+            if (!Directory.Exists("./toolboxes/" + this.name)) {
+                Directory.CreateDirectory("./toolboxes/" + this.name);}
+
+            if (name != oldName) {
+                Directory.Move("./toolboxes/" + this.oldName, "./toolboxes/" + this.name);}
+            
             toolbox2xml(this, "./toolboxes/" + this.name + "/toolbox.xml");
         }
 

@@ -14,7 +14,12 @@ namespace Taskbar_Toolbox
             ToolboxList list = new ToolboxList();
             foreach (string folder in Directory.EnumerateDirectories("./toolboxes"))
             {
-                list.Add(Toolbox.xml2toolbox(folder + "/toolbox.xml"));
+                try
+                {
+                    Toolbox tlb = Toolbox.xml2toolbox(folder + "/toolbox.xml");
+                    tlb.icon = System.Drawing.Image.FromFile("./toolboxes/" + tlb.name + "/icon.png");
+                    list.Add(tlb);
+                } catch { break; }
             }
             return list;
         }

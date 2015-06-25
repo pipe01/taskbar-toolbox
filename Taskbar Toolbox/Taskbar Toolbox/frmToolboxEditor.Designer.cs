@@ -67,6 +67,7 @@
             this.listToolboxes.Size = new System.Drawing.Size(120, 329);
             this.listToolboxes.TabIndex = 0;
             this.listToolboxes.SelectedIndexChanged += new System.EventHandler(this.listToolboxes_SelectedIndexChanged);
+            this.listToolboxes.DoubleClick += new System.EventHandler(this.listToolboxes_DoubleClick);
             // 
             // btnAddToolbox
             // 
@@ -86,6 +87,7 @@
             this.button2.TabIndex = 5;
             this.button2.Text = "Remove";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // groupBox1
             // 

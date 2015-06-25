@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Taskbar_Toolbox
 {
@@ -33,6 +34,7 @@ namespace Taskbar_Toolbox
             listToolboxes.Items.Clear();
             foreach(Toolbox item in toolboxList)
             {
+                if (item == null) { break; }
                 listToolboxes.Items.Add(item.name);
             }
         }
@@ -71,8 +73,8 @@ namespace Taskbar_Toolbox
         }
         private void saveChanges()
         {
-            try
-            {
+            //try
+            //{
                 if (selectedApp != null)
                 {
                     selectedApp.name = txtAppName.Text;
@@ -88,11 +90,11 @@ namespace Taskbar_Toolbox
 
                 refreshForm();
                 refreshList();
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
+            //}
+            //catch (Exception e)
+            //{
+            //    MessageBox.Show(e.Message);
+            //}
         }
 
         private void listToolboxes_SelectedIndexChanged(object sender, EventArgs e)
@@ -120,6 +122,25 @@ namespace Taskbar_Toolbox
             form.ShowDialog();
             toolboxList.Add(form.result);
             this.selectedTb = form.result;
+            refreshList();
+            refreshForm();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult res;
+            res = MessageBox.Show("Are you sure?", "Delete toolbox", MessageBoxButtons.YesNo);
+            if (res == System.Windows.Forms.DialogResult.Yes)
+            {
+                toolboxList.Remove(toolboxList.getFromName((string) listToolboxes.SelectedItem));
+                Directory.Delete("./toolboxes/" + listToolboxes.SelectedItem, true);
+                refreshList();
+                refreshForm();
+            }
+        }
+
+        private void listToolboxes_DoubleClick(object sender, EventArgs e)
+        {
             refreshList();
             refreshForm();
         }
