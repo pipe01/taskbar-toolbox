@@ -24,14 +24,6 @@ namespace Taskbar_Toolbox
 
         private void frmToolboxEditor_Load(object sender, EventArgs e)
         {
-            //Toolbox test = new Toolbox();
-            //test.name = "Toolbox1";
-            //test.bgColor = Color.CadetBlue;
-            //test.appList.Add("app1", new App("App1", "app1", "C:/carpeta/ejecutable1.exe"));
-            //test.appList.Add("app2", new App("App2", "app2", "C:/carpeta/ejecutable2.exe"));
-            //test.appList.Add("app3", new App("App3", "app3", "C:/carpeta/ejecutable3.exe"));
-            //Toolbox.toolbox2xml(test, "./toolboxes/Toolbox1/toolbox.xml");
-            //toolboxList.Add(test);
             toolboxList = ToolboxList.create();
             refreshList();
         }
@@ -111,20 +103,15 @@ namespace Taskbar_Toolbox
             this.selectedApp = selectedTb.appList[(string) lbApps.SelectedItem];
             refreshApps();
         }
-
-        private void txtAppId_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button3_Click(object sender, EventArgs e)
         {
             saveChanges();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnAddToolbox_Click(object sender, EventArgs e)
         {
-            
+            //new frmDialogAddToolbox().Show
+            new frmDialogAddToolbox().ShowDialog();
         }
     }
 }

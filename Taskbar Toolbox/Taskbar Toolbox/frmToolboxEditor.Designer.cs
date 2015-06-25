@@ -29,10 +29,14 @@
         private void InitializeComponent()
         {
             this.listToolboxes = new System.Windows.Forms.ListBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddToolbox = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.btnBrowse = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
             this.txtAppPath = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -47,10 +51,6 @@
             this.picIcono = new System.Windows.Forms.PictureBox();
             this.txtName = new System.Windows.Forms.TextBox();
             this.ofdAppBrowse = new System.Windows.Forms.OpenFileDialog();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAppIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
@@ -68,15 +68,15 @@
             this.listToolboxes.TabIndex = 0;
             this.listToolboxes.SelectedIndexChanged += new System.EventHandler(this.listToolboxes_SelectedIndexChanged);
             // 
-            // button1
+            // btnAddToolbox
             // 
-            this.button1.Location = new System.Drawing.Point(12, 347);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(56, 23);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Add";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnAddToolbox.Location = new System.Drawing.Point(12, 347);
+            this.btnAddToolbox.Name = "btnAddToolbox";
+            this.btnAddToolbox.Size = new System.Drawing.Size(56, 23);
+            this.btnAddToolbox.TabIndex = 4;
+            this.btnAddToolbox.Text = "Add";
+            this.btnAddToolbox.UseVisualStyleBackColor = true;
+            this.btnAddToolbox.Click += new System.EventHandler(this.btnAddToolbox_Click);
             // 
             // button2
             // 
@@ -114,6 +114,34 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Edit";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(50, 20);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(74, 13);
+            this.label6.TabIndex = 20;
+            this.label6.Text = "Toolbox name";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(249, 329);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "Save";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(70, 329);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(56, 23);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Remove";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
             // btnBrowse
             // 
             this.btnBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -123,6 +151,15 @@
             this.btnBrowse.TabIndex = 18;
             this.btnBrowse.Text = ". . .";
             this.btnBrowse.UseVisualStyleBackColor = true;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 329);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(56, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
             // 
             // txtAppPath
             // 
@@ -189,7 +226,6 @@
             this.txtAppId.Name = "txtAppId";
             this.txtAppId.Size = new System.Drawing.Size(100, 20);
             this.txtAppId.TabIndex = 10;
-            this.txtAppId.TextChanged += new System.EventHandler(this.txtAppId_TextChanged);
             // 
             // lbApps
             // 
@@ -234,43 +270,6 @@
             this.txtName.Size = new System.Drawing.Size(216, 20);
             this.txtName.TabIndex = 4;
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(249, 329);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 19;
-            this.button3.Text = "Save";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(6, 329);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(56, 23);
-            this.button4.TabIndex = 4;
-            this.button4.Text = "Add";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(70, 329);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(56, 23);
-            this.button5.TabIndex = 5;
-            this.button5.Text = "Remove";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(50, 20);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(74, 13);
-            this.label6.TabIndex = 20;
-            this.label6.Text = "Toolbox name";
-            // 
             // frmToolboxEditor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,7 +277,7 @@
             this.ClientSize = new System.Drawing.Size(480, 382);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnAddToolbox);
             this.Controls.Add(this.listToolboxes);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -297,7 +296,7 @@
         #endregion
 
         private System.Windows.Forms.ListBox listToolboxes;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddToolbox;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label4;
