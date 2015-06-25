@@ -44,7 +44,6 @@ namespace Taskbar_Toolbox
                 listToolboxes.Items.Add(item.name);
             }
         }
-
         private void refreshForm()
         {
             lbApps.Items.Clear();
@@ -60,6 +59,25 @@ namespace Taskbar_Toolbox
             txtAppPath.Text = selectedApp.path;
             
         }
+        private void cleanForm()
+        {
+            lbApps.Items.Clear();
+            picIcono.BackgroundImage = null;
+            txtNombre.Text = null;
+            picColor.BackColor = Color.White;
+            txtAppId.Text = null;
+            txtAppName.Text = null;
+            txtAppPath.Text = null;
+        }
+        private void saveChanges()
+        {
+            selectedApp.name = txtAppName.Text;
+            selectedApp.id = txtAppId.Text;
+            selectedApp.path = txtAppPath.Text;
+            selectedTb.save();
+            refreshForm();
+            refreshList();
+        }
 
         private void listToolboxes_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -71,6 +89,21 @@ namespace Taskbar_Toolbox
         {
             this.selectedApp = selectedTb.appList[(string) lbApps.SelectedItem];
             refreshForm();
+        }
+
+        private void txtAppId_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            saveChanges();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            
         }
     }
 }

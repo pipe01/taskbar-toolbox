@@ -47,6 +47,9 @@
             this.picIcono = new System.Windows.Forms.PictureBox();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.ofdAppBrowse = new System.Windows.Forms.OpenFileDialog();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picAppIcon)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
@@ -72,6 +75,7 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Add";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -84,7 +88,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.button3);
+            this.groupBox1.Controls.Add(this.button5);
             this.groupBox1.Controls.Add(this.btnBrowse);
+            this.groupBox1.Controls.Add(this.button4);
             this.groupBox1.Controls.Add(this.txtAppPath);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label4);
@@ -180,13 +187,14 @@
             this.txtAppId.Name = "txtAppId";
             this.txtAppId.Size = new System.Drawing.Size(100, 20);
             this.txtAppId.TabIndex = 10;
+            this.txtAppId.TextChanged += new System.EventHandler(this.txtAppId_TextChanged);
             // 
             // lbApps
             // 
             this.lbApps.FormattingEnabled = true;
             this.lbApps.Location = new System.Drawing.Point(6, 77);
             this.lbApps.Name = "lbApps";
-            this.lbApps.Size = new System.Drawing.Size(90, 277);
+            this.lbApps.Size = new System.Drawing.Size(90, 251);
             this.lbApps.TabIndex = 9;
             this.lbApps.SelectedIndexChanged += new System.EventHandler(this.lbApps_SelectedIndexChanged);
             // 
@@ -223,6 +231,34 @@
             this.txtNombre.Name = "txtNombre";
             this.txtNombre.Size = new System.Drawing.Size(216, 20);
             this.txtNombre.TabIndex = 4;
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(249, 329);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "Save";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(6, 329);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(56, 23);
+            this.button4.TabIndex = 4;
+            this.button4.Text = "Add";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(70, 329);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(56, 23);
+            this.button5.TabIndex = 5;
+            this.button5.Text = "Remove";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // txtName
             // 
@@ -266,5 +302,8 @@
         private System.Windows.Forms.TextBox txtAppPath;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.OpenFileDialog ofdAppBrowse;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button4;
     }
 }

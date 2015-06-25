@@ -15,6 +15,11 @@ namespace Taskbar_Toolbox
         public System.Drawing.Color bgColor;
         public System.Drawing.Image icon;
 
+        public void save()
+        {
+            toolbox2xml(this, "./toolboxes/" + this.name + "/toolbox.xml");
+        }
+
         public static void toolbox2xml(Toolbox toolbox, string xmlPath)
         {
             using (XmlWriter writer = XmlWriter.Create(xmlPath))
