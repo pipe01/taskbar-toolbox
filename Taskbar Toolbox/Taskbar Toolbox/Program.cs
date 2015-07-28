@@ -17,7 +17,23 @@ namespace Taskbar_Toolbox
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new frmToolboxEditor());
+            ToolboxForm form;
+
+            if (args.Length == 1)
+            {
+                try
+                {
+                    ToolboxList tlbList = ToolboxList.create();
+                    Toolbox tlb = tlbList.getFromName(args[0]);
+                    form = new ToolboxForm();
+                    form.setToolbox(tlb);
+                    Application.Run(form);
+                } catch (Exception) {
+                    //Application.Exit();
+                }
+            } else {
+                return;
+            }
         }
     }
 }

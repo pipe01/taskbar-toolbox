@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace Taskbar_Toolbox
 {
@@ -24,6 +25,11 @@ namespace Taskbar_Toolbox
             }
             set{
                 this.toolbox = value;
+                foreach (AppControl item in this.flpApps.Controls)
+                {
+                    item.toolbox = value;
+                }
+                refreshApps();
             }
         }
 
@@ -33,9 +39,18 @@ namespace Taskbar_Toolbox
             {
                 AppControl control = new AppControl();
                 control.controlApp = app;
+                control.appClicked += appClicked;
+                control.toolbox = this.toolbox;
                 this.flpApps.Controls.Add(control);
                 control = null;
             }
+        }
+
+        private void appClicked(object sender, EventArgs e)
+        {
+            toolbox.save();
+            Process.Start(((AppControl) sender).controlApp.path);
+            Application.Exit();
         }
 
         private void AppContainer_Load(object sender, EventArgs e)

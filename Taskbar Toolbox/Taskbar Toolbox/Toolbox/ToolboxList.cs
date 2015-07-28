@@ -12,14 +12,18 @@ namespace Taskbar_Toolbox
         public static ToolboxList create()
         {
             ToolboxList list = new ToolboxList();
-            foreach (string folder in Directory.EnumerateDirectories("./toolboxes"))
+            foreach (string folder in Directory.EnumerateDirectories(Util.getToolboxesPath()))
             {
                 try
                 {
                     Toolbox tlb = Toolbox.xml2toolbox(folder + "/toolbox.xml");
-                    tlb.icon = System.Drawing.Image.FromFile("./toolboxes/" + tlb.name + "/icon.png");
-                    list.Add(tlb);
-                } catch { break; }
+                    string nombre = Path.GetFileName(Path.GetFullPath(folder));
+                    if (nombre == tlb.name)
+                    {
+                        tlb.icon = System.Drawing.Image.FromFile(Util.getToolboxesPath() + tlb.name + "/icon.png");
+                        list.Add(tlb);
+                    }
+                } catch { continue; }
             }
             return list;
         }

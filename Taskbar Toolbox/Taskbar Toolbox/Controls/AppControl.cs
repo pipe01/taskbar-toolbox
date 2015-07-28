@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace Taskbar_Toolbox
 {
@@ -22,6 +23,28 @@ namespace Taskbar_Toolbox
         public Color bgColor = Color.White;
         public Color bgColorHover = Color.FromArgb(200, 200, 200);
 
+        private Toolbox toolbox_;
+        public Toolbox toolbox
+        {
+            get
+            {
+                return toolbox_;
+            }
+            set
+            {
+                this.toolbox_ = value;
+                string path = Util.getToolboxesPath() + this.toolbox_.name + "/" + app.id + ".png";
+                if (File.Exists(path))
+                {
+                    this.picIcono.BackgroundImage = Image.FromFile(path);
+                }
+                else
+                {
+                    this.picIcono.BackgroundImage = Icon.ExtractAssociatedIcon(app.path).ToBitmap();
+                }
+            }
+        }
+
         private App app;
         public App controlApp
         {
@@ -29,7 +52,11 @@ namespace Taskbar_Toolbox
             set {
                 app = value;
                 if (app == null) { return; }
-                this.picIcono.BackgroundImage = null; //Image.FromFile("");
+                try{
+                    this.picIcono.BackgroundImage = Icon.ExtractAssociatedIcon(app.path).ToBitmap();
+                } catch (Exception) { 
+                    //throw
+                }
                 this.lblNombre.Text = app.name;
             }
         }
@@ -52,6 +79,7 @@ namespace Taskbar_Toolbox
         private void AppControl_Load(object sender, EventArgs e)
         {
             this.Region = Util.GetRoundRegion(this.Width, this.Height, 20);
+            this.BackColor = bgColor;
         }
     }
 }

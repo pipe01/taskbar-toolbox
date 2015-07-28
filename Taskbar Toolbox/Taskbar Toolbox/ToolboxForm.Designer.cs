@@ -28,19 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Taskbar_Toolbox.Toolbox toolbox1 = new Taskbar_Toolbox.Toolbox();
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
+            this.appContainer = new Taskbar_Toolbox.AppContainer();
+            this.lblEditar = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // picIcon
             // 
-            this.picIcon.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.picIcon.BackColor = System.Drawing.Color.Transparent;
+            this.picIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picIcon.Location = new System.Drawing.Point(12, 12);
             this.picIcon.Name = "picIcon";
             this.picIcon.Size = new System.Drawing.Size(32, 32);
             this.picIcon.TabIndex = 0;
             this.picIcon.TabStop = false;
+            this.picIcon.MouseDown += new System.Windows.Forms.MouseEventHandler(this.picIcon_MouseDown);
+            this.picIcon.MouseMove += new System.Windows.Forms.MouseEventHandler(this.picIcon_MouseMove);
+            this.picIcon.MouseUp += new System.Windows.Forms.MouseEventHandler(this.picIcon_MouseUp);
             // 
             // lblName
             // 
@@ -51,18 +58,43 @@
             this.lblName.TabIndex = 1;
             this.lblName.Text = "label1";
             // 
+            // appContainer
+            // 
+            this.appContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.appContainer.Location = new System.Drawing.Point(12, 50);
+            this.appContainer.Name = "appContainer";
+            this.appContainer.Size = new System.Drawing.Size(266, 200);
+            this.appContainer.TabIndex = 2;
+            this.appContainer.Toolbox = toolbox1;
+            // 
+            // lblEditar
+            // 
+            this.lblEditar.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.lblEditar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEditar.Location = new System.Drawing.Point(231, 9);
+            this.lblEditar.Name = "lblEditar";
+            this.lblEditar.Size = new System.Drawing.Size(47, 35);
+            this.lblEditar.TabIndex = 3;
+            this.lblEditar.Text = "Editar";
+            this.lblEditar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEditar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblEditar_MouseUp);
+            // 
             // ToolboxForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.ClientSize = new System.Drawing.Size(284, 262);
+            this.ClientSize = new System.Drawing.Size(290, 262);
+            this.Controls.Add(this.lblEditar);
+            this.Controls.Add(this.appContainer);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.picIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ToolboxForm";
+            this.ShowInTaskbar = false;
             this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Deactivate += new System.EventHandler(this.ToolboxForm_Deactivate);
+            this.Shown += new System.EventHandler(this.ToolboxForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -73,6 +105,8 @@
 
         private System.Windows.Forms.PictureBox picIcon;
         private System.Windows.Forms.Label lblName;
+        private AppContainer appContainer;
+        private System.Windows.Forms.Label lblEditar;
 
 
     }

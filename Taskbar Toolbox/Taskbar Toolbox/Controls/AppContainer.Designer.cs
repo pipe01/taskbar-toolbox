@@ -33,6 +33,7 @@
             // 
             // flpApps
             // 
+            this.flpApps.AutoScroll = true;
             this.flpApps.BackColor = System.Drawing.Color.Transparent;
             this.flpApps.Dock = System.Windows.Forms.DockStyle.Fill;
             this.flpApps.Location = new System.Drawing.Point(0, 0);
