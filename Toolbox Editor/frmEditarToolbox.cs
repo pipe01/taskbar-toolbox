@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Toolbox_Editor
@@ -166,6 +160,11 @@ namespace Toolbox_Editor
             }
             Util.tlb.save();
             Application.Restart();
+        }
+
+        private void frmEditarToolbox_Paint(object sender, PaintEventArgs e)
+        {
+            e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
         }
     }
 }
