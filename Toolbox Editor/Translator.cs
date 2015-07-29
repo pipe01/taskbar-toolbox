@@ -1,11 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.IO;
 using System.Windows.Forms;
-using System.Globalization;
 using System.Resources;
 using System.Reflection;
 
@@ -21,7 +16,7 @@ namespace Toolbox_Editor
         public Translator()
         {
             initiated = true;
-            rm = new ResourceManager(this.GetType().Namespace + ".strings", Assembly.GetExecutingAssembly());
+            rm = new ResourceManager(GetType().Namespace + ".strings", Assembly.GetExecutingAssembly());
         }
 
         public void translateForm(Form form)
