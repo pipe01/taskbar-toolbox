@@ -31,8 +31,8 @@
             Taskbar_Toolbox.Toolbox toolbox1 = new Taskbar_Toolbox.Toolbox();
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.appContainer = new Taskbar_Toolbox.AppContainer();
             this.lblEditar = new System.Windows.Forms.Label();
+            this.appContainer = new Taskbar_Toolbox.AppContainer();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,20 +52,11 @@
             // lblName
             // 
             this.lblName.AutoSize = true;
-            this.lblName.Location = new System.Drawing.Point(51, 20);
+            this.lblName.Location = new System.Drawing.Point(51, 21);
             this.lblName.Name = "lblName";
             this.lblName.Size = new System.Drawing.Size(35, 13);
             this.lblName.TabIndex = 1;
             this.lblName.Text = "label1";
-            // 
-            // appContainer
-            // 
-            this.appContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.appContainer.Location = new System.Drawing.Point(12, 50);
-            this.appContainer.Name = "appContainer";
-            this.appContainer.Size = new System.Drawing.Size(266, 200);
-            this.appContainer.TabIndex = 2;
-            this.appContainer.Toolbox = toolbox1;
             // 
             // lblEditar
             // 
@@ -77,7 +68,17 @@
             this.lblEditar.TabIndex = 3;
             this.lblEditar.Text = "Editar";
             this.lblEditar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblEditar.Click += new System.EventHandler(this.lblEditar_Click);
             this.lblEditar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblEditar_MouseUp);
+            // 
+            // appContainer
+            // 
+            this.appContainer.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.appContainer.Location = new System.Drawing.Point(12, 50);
+            this.appContainer.Name = "appContainer";
+            this.appContainer.Size = new System.Drawing.Size(266, 200);
+            this.appContainer.TabIndex = 2;
+            this.appContainer.Toolbox = toolbox1;
             // 
             // ToolboxForm
             // 
@@ -107,8 +108,6 @@
         private System.Windows.Forms.Label lblName;
         private AppContainer appContainer;
         private System.Windows.Forms.Label lblEditar;
-
-
     }
 }
 

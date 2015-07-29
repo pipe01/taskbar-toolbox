@@ -1,13 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 using System.IO;
 using ImageMagick;
-using Shell32;
 using IWshRuntimeLibrary;
 
 namespace Toolbox_Editor

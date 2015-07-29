@@ -232,9 +232,12 @@
             this.Controls.Add(this.picIcon);
             this.Controls.Add(this.txtTlbName);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.MaximizeBox = false;
             this.Name = "frmEditarToolbox";
             this.Text = "Toolbox Editor";
             this.Load += new System.EventHandler(this.frmEditarToolbox_Load);
+            this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmEditarToolbox_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

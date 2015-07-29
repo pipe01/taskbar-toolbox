@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Xml;
 using System.Drawing;
 using System.IO;
@@ -13,8 +9,8 @@ namespace Toolbox_Editor
     {
         public string name, oldName;
         public Dictionary<string, App> appList = new Dictionary<string, App>();
-        public System.Drawing.Color bgColor;
-        public System.Drawing.Image icon;
+        public Color bgColor;
+        public Image icon;
         public Point position;
 
         public void setName(string newName)
@@ -28,7 +24,6 @@ namespace Toolbox_Editor
             {
                 if (this.name != newName)
                 {
-                    //Util.MoveDirectory(Util.getToolboxesPath() + this.name, Util.getToolboxesPath() + newName);
                     Directory.Move(Util.getToolboxesPath() + this.name, Util.getToolboxesPath() + newName);
                 }
                 oldName = name;
@@ -42,9 +37,6 @@ namespace Toolbox_Editor
             {
                 Directory.CreateDirectory(Util.getToolboxesPath() + this.name);
             }
-
-            /*if (name != oldName && oldName != null) {
-                Directory.Move(Util.getToolboxesPath() + this.oldName, Util.getToolboxesPath() + this.name);}*/
 
             if (this.icon != null) { this.icon.Save(Util.getToolboxesPath() + this.name + "/icon.png"); }
             toolbox2xml(this, Util.getToolboxesPath() + this.name + "/toolbox.xml");
