@@ -9,31 +9,7 @@ namespace Taskbar_Toolbox
     static class Util
     {
         #region "Round shape"
-        [System.Runtime.InteropServices.DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
-        public static extern System.IntPtr CreateRoundRectRgn
-        (
-         int nLeftRect, // x-coordinate of upper-left corner
-         int nTopRect, // y-coordinate of upper-left corner
-         int nRightRect, // x-coordinate of lower-right corner
-         int nBottomRect, // y-coordinate of lower-right corner
-         int nWidthEllipse, // height of ellipse
-         int nHeightEllipse // width of ellipse
-        );
 
-        [System.Runtime.InteropServices.DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
-        public static extern bool DeleteObject(System.IntPtr hObject);
-
-        public static Region GetRoundRegion(int width, int height, int roundRadius)
-        {
-            return GetRoundRegion(width, height, roundRadius, roundRadius);
-        }
-        public static Region GetRoundRegion(int width, int height, int roundWidth, int roundHeight)
-        {
-            System.IntPtr ptr = CreateRoundRectRgn(0, 0, width, height, roundWidth, roundHeight);
-            Region rg = Region.FromHrgn(ptr);
-            DeleteObject(ptr);
-            return rg;
-        }
         #endregion
 
         #region "Delete util"

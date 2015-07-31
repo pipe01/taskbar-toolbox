@@ -10,7 +10,7 @@ namespace Taskbar_Toolbox
         public ToolboxForm()
         {
             InitializeComponent();
-            this.Region = Util.GetRoundRegion(this.Width, this.Height, 15);
+            this.Region = WinAPI.GetRoundRegion(this.Width, this.Height, 15);
         }
 
         private Toolbox tlb;
@@ -21,6 +21,7 @@ namespace Taskbar_Toolbox
             this.appContainer.Toolbox = tlb;
             this.picIcon.BackgroundImage = tlb.icon;
             this.lblName.Text = tlb.name;
+            this.Location = tlb.position;
             this.BackColor = tlb.bgColor;
         }
 
@@ -58,8 +59,9 @@ namespace Taskbar_Toolbox
 
         private void ToolboxForm_Deactivate(object sender, EventArgs e)
         {
+            this.BringToFront();
             tlb.save();
-            this.Close();
+            close();
         }
 
         private void lblEditar_MouseUp(object sender, MouseEventArgs e)
@@ -84,9 +86,21 @@ namespace Taskbar_Toolbox
 
         private const int CS_DROPSHADOW = 0x20000;
 
-        private void lblEditar_Click(object sender, EventArgs e)
+        private void ToolboxForm_Load(object sender, EventArgs e)
         {
+            this.Location = tlb.position;
+            WinAPI.AnimateWindow(this.Handle, 300, WinAPI.AW_SLIDE + WinAPI.AW_VER_NEGATIVE);
+        }
 
+        private void ToolboxForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            close();
+        }
+
+        public void close()
+        {
+            WinAPI.AnimateWindow(this.Handle, 300, WinAPI.AW_SLIDE + WinAPI.AW_VER_POSITIVE + WinAPI.AW_HIDE);
+            Application.Exit();
         }
 
         protected override CreateParams CreateParams

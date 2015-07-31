@@ -71,6 +71,7 @@
     <Compile Include="Toolbox\Toolbox.cs" />
     <Compile Include="Toolbox\ToolboxList.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="WinAPI.cs" />
     <EmbeddedResource Include="Controls\AppContainer.resx">
       <DependentUpon>AppContainer.cs</DependentUpon>
     </EmbeddedResource>

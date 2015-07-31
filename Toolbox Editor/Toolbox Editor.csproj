@@ -51,6 +51,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App.cs" />
+    <Compile Include="frmAddApp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddApp.Designer.cs">
+      <DependentUpon>frmAddApp.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEditarToolbox.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -72,6 +78,10 @@
     <Compile Include="Toolbox.cs" />
     <Compile Include="Translator.cs" />
     <Compile Include="Util.cs" />
+    <Compile Include="WinAPI.cs" />
+    <EmbeddedResource Include="frmAddApp.resx">
+      <DependentUpon>frmAddApp.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmEditarToolbox.resx">
       <DependentUpon>frmEditarToolbox.cs</DependentUpon>
     </EmbeddedResource>

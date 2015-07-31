@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace Toolbox_Editor
@@ -45,6 +46,14 @@ namespace Toolbox_Editor
                 txtAppID.Text = selectedApp.id;
                 txtAppName.Text = selectedApp.name;
                 txtPath.Text = selectedApp.path;
+                if (File.Exists(Util.getToolboxesPath() + Util.tlb.name + "/" + selectedApp.id + ".png"))
+                {
+                    picAppIcon.BackgroundImage = Image.FromFile(Util.getToolboxesPath() + Util.tlb.name + "/" + selectedApp.id + ".png");
+                }
+                else
+                {
+                    picAppIcon.BackgroundImage = Icon.ExtractAssociatedIcon(selectedApp.path).ToBitmap();
+                }
                 txtAppID.Enabled = true;
                 txtAppName.Enabled = true;
                 txtPath.Enabled = true;
@@ -55,6 +64,7 @@ namespace Toolbox_Editor
                 txtAppID.Enabled = false;
                 txtAppName.Enabled = false;
                 txtPath.Enabled = false;
+                picAppIcon.BackgroundImage = null;
             }
 
         }
@@ -96,6 +106,8 @@ namespace Toolbox_Editor
 
         private void delApp()
         {
+            if (File.Exists(Util.getCurrentToolboxPath() + selectedApp.id + ".png"))
+                File.Delete(Util.getCurrentToolboxPath() + selectedApp.id + ".png");
             Util.tlb.appList.Remove(selectedApp.id);
             Util.tlb.save();
             refreshToolbox();
@@ -129,8 +141,16 @@ namespace Toolbox_Editor
 
         private void btnAñadirApp_Click(object sender, EventArgs e)
         {
-            addApp();
-            lbApps.SelectedIndex = lbApps.Items.Count - 1;
+            frmAddApp frm = new frmAddApp();
+            DialogResult ret = frm.ShowDialog();
+            if (ret == DialogResult.OK)
+            {
+                Util.tlb.appList.Add(frm.currentApp.id, frm.currentApp);
+                Util.tlb.save();
+                refreshToolbox();
+                lbApps.SelectedIndex = lbApps.Items.Count - 1;
+            }
+            //addApp();
         }
 
         private void btnQuitarApp_Click(object sender, EventArgs e)
@@ -165,6 +185,16 @@ namespace Toolbox_Editor
         private void frmEditarToolbox_Paint(object sender, PaintEventArgs e)
         {
             e.Graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+        }
+
+        private void frmEditarToolbox_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop)) e.Effect = DragDropEffects.Copy;
+        }
+
+        private void frmEditarToolbox_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
         }
     }
 }
