@@ -5,6 +5,7 @@ namespace Taskbar_Toolbox
 {
     static class Program
     {
+        public static ToolboxForm form;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -14,8 +15,7 @@ namespace Taskbar_Toolbox
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            ToolboxForm form;
-
+            
             if (args.Length == 1)
             {
                 try

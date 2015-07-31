@@ -28,10 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             Taskbar_Toolbox.Toolbox toolbox1 = new Taskbar_Toolbox.Toolbox();
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblEditar = new System.Windows.Forms.Label();
+            this.animator = new System.Windows.Forms.Timer(this.components);
             this.appContainer = new Taskbar_Toolbox.AppContainer();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.SuspendLayout();
@@ -68,8 +70,11 @@
             this.lblEditar.TabIndex = 3;
             this.lblEditar.Text = "Editar";
             this.lblEditar.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblEditar.Click += new System.EventHandler(this.lblEditar_Click);
             this.lblEditar.MouseUp += new System.Windows.Forms.MouseEventHandler(this.lblEditar_MouseUp);
+            // 
+            // animator
+            // 
+            this.animator.Interval = 1000;
             // 
             // appContainer
             // 
@@ -84,7 +89,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.BackColor = System.Drawing.Color.MediumPurple;
             this.ClientSize = new System.Drawing.Size(290, 262);
             this.Controls.Add(this.lblEditar);
             this.Controls.Add(this.appContainer);
@@ -92,9 +97,13 @@
             this.Controls.Add(this.picIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ToolboxForm";
-            this.ShowInTaskbar = false;
+            this.ShowIcon = false;
             this.Text = "Form1";
+            this.TopMost = true;
+            this.TransparencyKey = System.Drawing.Color.Fuchsia;
             this.Deactivate += new System.EventHandler(this.ToolboxForm_Deactivate);
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.ToolboxForm_FormClosing);
+            this.Load += new System.EventHandler(this.ToolboxForm_Load);
             this.Shown += new System.EventHandler(this.ToolboxForm_Shown);
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.ResumeLayout(false);
@@ -108,6 +117,7 @@
         private System.Windows.Forms.Label lblName;
         private AppContainer appContainer;
         private System.Windows.Forms.Label lblEditar;
+        private System.Windows.Forms.Timer animator;
     }
 }
 

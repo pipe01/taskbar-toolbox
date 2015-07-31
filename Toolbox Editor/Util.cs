@@ -59,6 +59,10 @@ namespace Toolbox_Editor
         {
             return System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Toolboxes/";
         }
+        public static string getCurrentToolboxPath()
+        {
+            return getToolboxesPath() + tlb.name + "/";
+        }
 
         public static void png2ico(string path1, string path2)
         {
@@ -73,12 +77,34 @@ namespace Toolbox_Editor
         public static void createShortcut()
         {
             var wsh = new IWshShell_Class();
-            IWshRuntimeLibrary.IWshShortcut shortcut = wsh.CreateShortcut(Util.getToolboxesPath() + Util.tlb.name + ".lnk") as IWshRuntimeLibrary.IWshShortcut;
+            IWshShortcut shortcut = wsh.CreateShortcut(Util.getToolboxesPath() + Util.tlb.name + ".lnk") as IWshRuntimeLibrary.IWshShortcut;
             shortcut.TargetPath = Path.GetDirectoryName(Application.ExecutablePath) + "\\toolbox.exe";
             shortcut.IconLocation = Util.getToolboxesPath() + Util.tlb.name + "/icon.ico";
             shortcut.Arguments = Util.tlb.name;
             shortcut.WorkingDirectory = Path.GetDirectoryName(Application.ExecutablePath);
             shortcut.Save();
+        }
+
+        public static IWshShortcut getShortcut(string path)
+        {
+            IWshShortcut shortcut = null;
+            if (System.IO.File.Exists(path))
+            {
+                var wsh = new IWshShell_Class();
+                shortcut = wsh.CreateShortcut(path);
+            }
+            return shortcut;
+        }
+
+        public static IWshURLShortcut getUrlShortcut(string path)
+        {
+            IWshURLShortcut shortcut = null;
+            if (System.IO.File.Exists(path))
+            {
+                var wsh = new IWshShell_Class();
+                shortcut = wsh.CreateShortcut(path);
+            }
+            return shortcut;
         }
     }
 }

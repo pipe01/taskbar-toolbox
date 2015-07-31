@@ -46,9 +46,12 @@
             this.btnAñadirApp = new System.Windows.Forms.Button();
             this.btnQuitarApp = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.picAppIcon = new System.Windows.Forms.PictureBox();
+            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAppIcon)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -87,12 +90,14 @@
             this.lbApps.FormattingEnabled = true;
             this.lbApps.Location = new System.Drawing.Point(15, 32);
             this.lbApps.Name = "lbApps";
-            this.lbApps.Size = new System.Drawing.Size(108, 95);
+            this.lbApps.Size = new System.Drawing.Size(108, 108);
             this.lbApps.TabIndex = 4;
             this.lbApps.SelectedIndexChanged += new System.EventHandler(this.lbApps_SelectedIndexChanged);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.label2);
+            this.panel1.Controls.Add(this.picAppIcon);
             this.panel1.Controls.Add(this.btnAppAplicar);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.txtPath);
@@ -102,12 +107,12 @@
             this.panel1.Controls.Add(this.label3);
             this.panel1.Location = new System.Drawing.Point(129, 32);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(314, 95);
+            this.panel1.Size = new System.Drawing.Size(314, 111);
             this.panel1.TabIndex = 5;
             // 
             // btnAppAplicar
             // 
-            this.btnAppAplicar.Location = new System.Drawing.Point(236, 69);
+            this.btnAppAplicar.Location = new System.Drawing.Point(236, 79);
             this.btnAppAplicar.Name = "btnAppAplicar";
             this.btnAppAplicar.Size = new System.Drawing.Size(75, 23);
             this.btnAppAplicar.TabIndex = 6;
@@ -119,7 +124,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 56);
+            this.label5.Location = new System.Drawing.Point(5, 66);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 13);
             this.label5.TabIndex = 5;
@@ -129,7 +134,7 @@
             // txtPath
             // 
             this.txtPath.Enabled = false;
-            this.txtPath.Location = new System.Drawing.Point(8, 72);
+            this.txtPath.Location = new System.Drawing.Point(8, 82);
             this.txtPath.Name = "txtPath";
             this.txtPath.Size = new System.Drawing.Size(222, 20);
             this.txtPath.TabIndex = 4;
@@ -137,15 +142,15 @@
             // txtAppID
             // 
             this.txtAppID.Enabled = false;
-            this.txtAppID.Location = new System.Drawing.Point(49, 32);
+            this.txtAppID.Location = new System.Drawing.Point(168, 32);
             this.txtAppID.Name = "txtAppID";
-            this.txtAppID.Size = new System.Drawing.Size(262, 20);
+            this.txtAppID.Size = new System.Drawing.Size(143, 20);
             this.txtAppID.TabIndex = 3;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(15, 35);
+            this.label4.Location = new System.Drawing.Point(144, 35);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(18, 13);
             this.label4.TabIndex = 2;
@@ -218,11 +223,32 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // picAppIcon
+            // 
+            this.picAppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picAppIcon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picAppIcon.Location = new System.Drawing.Point(8, 31);
+            this.picAppIcon.Name = "picAppIcon";
+            this.picAppIcon.Size = new System.Drawing.Size(32, 32);
+            this.picAppIcon.TabIndex = 7;
+            this.picAppIcon.TabStop = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(43, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Tag = "@gui.appIcon";
+            this.label2.Text = "Icono";
+            // 
             // frmEditarToolbox
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(493, 143);
+            this.ClientSize = new System.Drawing.Size(492, 152);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.btnQuitarApp);
             this.Controls.Add(this.btnAñadirApp);
@@ -237,11 +263,14 @@
             this.Name = "frmEditarToolbox";
             this.Text = "Toolbox Editor";
             this.Load += new System.EventHandler(this.frmEditarToolbox_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmEditarToolbox_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.frmEditarToolbox_DragEnter);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.frmEditarToolbox_Paint);
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picColor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picAppIcon)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -267,6 +296,8 @@
         private System.Windows.Forms.Button btnAñadirApp;
         private System.Windows.Forms.Button btnQuitarApp;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.PictureBox picAppIcon;
     }
 }
 

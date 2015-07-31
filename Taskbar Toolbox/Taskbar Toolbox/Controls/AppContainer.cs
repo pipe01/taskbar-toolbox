@@ -43,7 +43,7 @@ namespace Taskbar_Toolbox
         {
             toolbox.save();
             Process.Start(((AppControl) sender).controlApp.path);
-            Application.Exit();
+            Program.form.close();
         }
 
         private void AppContainer_Load(object sender, EventArgs e)

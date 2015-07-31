@@ -1,6 +1,6 @@
 ﻿namespace Toolbox_Editor
 {
-    class App
+    public class App
     {
         public string name;
         public string id;
