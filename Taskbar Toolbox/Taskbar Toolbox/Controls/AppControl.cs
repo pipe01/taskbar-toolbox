@@ -72,7 +72,7 @@ namespace Taskbar_Toolbox
 
         private void AppControl_Load(object sender, EventArgs e)
         {
-            this.Region = WinAPI.GetRoundRegion(this.Width, this.Height, 20);
+            //this.Region = WinAPI.GetRoundRegion(this.Width, this.Height, 20);
             this.BackColor = bgColor;
         }
     }
