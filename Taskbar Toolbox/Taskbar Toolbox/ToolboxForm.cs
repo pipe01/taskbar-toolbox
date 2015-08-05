@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using ScreenSnap;
+using Toolbox_API;
 
 namespace Taskbar_Toolbox
 {

@@ -6,7 +6,7 @@ using System.Xml;
 
 namespace Toolbox_API
 {
-    class Toolbox
+    public class Toolbox
     {
         public string name, oldName;
         public Dictionary<string, App> appList = new Dictionary<string, App>();

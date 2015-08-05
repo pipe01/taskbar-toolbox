@@ -1,4 +1,6 @@
-﻿namespace Taskbar_Toolbox
+﻿using Toolbox_API;
+
+namespace Taskbar_Toolbox
 {
     partial class ToolboxForm
     {
@@ -29,7 +31,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Taskbar_Toolbox.Toolbox toolbox1 = new Taskbar_Toolbox.Toolbox();
+            Toolbox toolbox1 = new Toolbox();
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblEditar = new System.Windows.Forms.Label();

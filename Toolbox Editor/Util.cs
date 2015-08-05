@@ -4,7 +4,7 @@ using System.Drawing;
 using System.IO;
 using ImageMagick;
 using IWshRuntimeLibrary;
-using System.Collections.Generic;
+using Toolbox_API;
 
 namespace Toolbox_Editor
 {

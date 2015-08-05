@@ -1,4 +1,4 @@
-﻿namespace Taskbar_Toolbox
+﻿namespace Toolbox_API
 {
     public class App
     {

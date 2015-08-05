@@ -1,14 +1,15 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 
-namespace Taskbar_Toolbox
+namespace Toolbox_API
 {
-    class ToolboxList : List<Toolbox>
+    public class ToolboxList : List<Toolbox>
     {
         public static ToolboxList create()
         {
             ToolboxList list = new ToolboxList();
-            foreach (string folder in Directory.EnumerateDirectories(Util.getToolboxesPath()))
+            foreach (string folder in Directory.EnumerateDirectories(getToolboxesPath()))
             {
                 try
                 {
@@ -16,10 +17,11 @@ namespace Taskbar_Toolbox
                     string nombre = Path.GetFileName(Path.GetFullPath(folder));
                     if (nombre == tlb.name)
                     {
-                        tlb.icon = System.Drawing.Image.FromFile(Util.getToolboxesPath() + tlb.name + "/icon.png");
+                        tlb.icon = System.Drawing.Image.FromFile(getToolboxesPath() + tlb.name + "/icon.png");
                         list.Add(tlb);
                     }
-                } catch { continue; }
+                }
+                catch { continue; }
             }
             return list;
         }
@@ -31,6 +33,11 @@ namespace Taskbar_Toolbox
                 if (item.name == name) { return item; }
             }
             return null;
+        }
+
+        public static string getToolboxesPath()
+        {
+            return System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "/Toolboxes/";
         }
     }
 }
