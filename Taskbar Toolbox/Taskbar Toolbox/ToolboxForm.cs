@@ -10,7 +10,7 @@ namespace Taskbar_Toolbox
         public ToolboxForm()
         {
             InitializeComponent();
-            //this.Region = WinAPI.GetRoundRegion(this.Width, this.Height, 15);
+            this.Region = WinAPI.GetRoundRegion(this.Width, this.Height, 15);
         }
 
         private Toolbox tlb;
