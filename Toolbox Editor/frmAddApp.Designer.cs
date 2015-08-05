@@ -46,6 +46,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.lblStatus = new System.Windows.Forms.Label();
             this.openExe = new System.Windows.Forms.OpenFileDialog();
+            this.btnIcono = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcono)).BeginInit();
             this.SuspendLayout();
@@ -92,7 +93,7 @@
             // 
             this.txtAppID.Location = new System.Drawing.Point(50, 46);
             this.txtAppID.Name = "txtAppID";
-            this.txtAppID.Size = new System.Drawing.Size(288, 20);
+            this.txtAppID.Size = new System.Drawing.Size(249, 20);
             this.txtAppID.TabIndex = 17;
             this.txtAppID.TextChanged += new System.EventHandler(this.txtAppID_TextChanged);
             // 
@@ -110,7 +111,7 @@
             // 
             this.txtAppName.Location = new System.Drawing.Point(50, 20);
             this.txtAppName.Name = "txtAppName";
-            this.txtAppName.Size = new System.Drawing.Size(288, 20);
+            this.txtAppName.Size = new System.Drawing.Size(249, 20);
             this.txtAppName.TabIndex = 15;
             // 
             // label3
@@ -135,8 +136,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnIcono);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.txtAppName);
+            this.groupBox1.Controls.Add(this.picIcono);
             this.groupBox1.Controls.Add(this.btnBrowse);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label5);
@@ -180,13 +183,12 @@
             this.picIcono.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.picIcono.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.picIcono.Enabled = false;
-            this.picIcono.Location = new System.Drawing.Point(324, 12);
+            this.picIcono.Location = new System.Drawing.Point(305, 19);
             this.picIcono.Name = "picIcono";
             this.picIcono.Size = new System.Drawing.Size(32, 32);
             this.picIcono.TabIndex = 25;
             this.picIcono.TabStop = false;
             this.picIcono.BackgroundImageChanged += new System.EventHandler(this.picIcono_BackgroundImageChanged);
-            this.picIcono.Click += new System.EventHandler(this.picIcono_Click);
             // 
             // openImage
             // 
@@ -216,6 +218,16 @@
             // 
             this.openExe.Filter = "Archivos ejecutables (*.exe)|*.exe|Todos los archivos (*.*)|*.*";
             // 
+            // btnIcono
+            // 
+            this.btnIcono.Location = new System.Drawing.Point(304, 53);
+            this.btnIcono.Name = "btnIcono";
+            this.btnIcono.Size = new System.Drawing.Size(33, 23);
+            this.btnIcono.TabIndex = 26;
+            this.btnIcono.Text = "^^";
+            this.btnIcono.UseVisualStyleBackColor = true;
+            this.btnIcono.Click += new System.EventHandler(this.btnIcono_Click);
+            // 
             // frmAddApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,7 +235,6 @@
             this.ClientSize = new System.Drawing.Size(368, 194);
             this.Controls.Add(this.lblStatus);
             this.Controls.Add(this.button3);
-            this.Controls.Add(this.picIcono);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.groupBox1);
@@ -259,5 +270,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label lblStatus;
         private System.Windows.Forms.OpenFileDialog openExe;
+        private System.Windows.Forms.Button btnIcono;
     }
 }

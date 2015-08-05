@@ -59,16 +59,6 @@ namespace Toolbox_Editor
             }
         }
 
-        private void picIcono_Click(object sender, EventArgs e)
-        {
-            openImage.ShowDialog();
-            if (File.Exists(openImage.FileName))
-            {
-                Image img = Image.FromFile(openImage.FileName);
-                picIcono.BackgroundImage = img;
-            }
-        }
-
         private void txtAppID_TextChanged(object sender, EventArgs e)
         {
             if (File.Exists(Util.getToolboxesPath() + Util.tlb.name + "/" + currentApp.id + ".png"))
@@ -85,6 +75,7 @@ namespace Toolbox_Editor
             int intId;
             Util.InputBox("Añadir aplicacion", "ID del juego de Steam", ref appId);
             intId = int.Parse(appId);
+            lblStatus.Text = "Obteniendo informacion del juego...";
             lblStatus.Show();
             appName = Util.steam.getAppName(intId);
 
@@ -102,7 +93,7 @@ namespace Toolbox_Editor
             }
             catch (Exception)
             {
-                lblStatus.Text = "Icono no encontrado";
+                lblStatus.Text = "Icono no encontrado, añadir manualmente";
             }
         }
 
@@ -116,6 +107,17 @@ namespace Toolbox_Editor
                 try{
                     picIcono.BackgroundImage = Icon.ExtractAssociatedIcon(openExe.FileName).ToBitmap();
                 }catch (Exception) {    }
+            }
+        }
+
+        private void btnIcono_Click(object sender, EventArgs e)
+        {
+            openImage.ShowDialog();
+            if (File.Exists(openImage.FileName))
+            {
+                Image img = Image.FromFile(openImage.FileName);
+                picIcono.BackgroundImage = img;
+                lblStatus.Hide();
             }
         }
     }
