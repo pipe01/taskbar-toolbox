@@ -103,15 +103,12 @@ namespace Toolbox_Editor
             try
             {
                 picIcono.BackgroundImage = Icon.ExtractAssociatedIcon(Util.steam.getAppExecutable(appName)).ToBitmap();
+                lblStatus.Hide();
             }
             catch (Exception)
             {
-
-                
+                lblStatus.Text = "Icono no encontrado";
             }
-            
-
-            lblStatus.Hide();
         }
 
         private void btnBrowse_Click(object sender, EventArgs e)
@@ -122,7 +119,7 @@ namespace Toolbox_Editor
                 currentApp.path = openExe.FileName;
                 updateAppInfo();
                 try{
-                    picIcono.BackgroundImage = Icon.ExtractAssociatedIcon(Util.steam.getAppExecutable(appName)).ToBitmap();
+                    picIcono.BackgroundImage = Icon.ExtractAssociatedIcon(openExe.FileName).ToBitmap();
                 }catch (Exception) {    }
             }
         }
