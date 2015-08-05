@@ -49,11 +49,6 @@ namespace Toolbox_Editor
             }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void picIcono_BackgroundImageChanged(object sender, EventArgs e)
         {
             if (picIcono.BackgroundImage != null)
@@ -84,7 +79,7 @@ namespace Toolbox_Editor
             }
         }
 
-        private async void button3_Click(object sender, EventArgs e)
+        private void button3_Click(object sender, EventArgs e)
         {
             string appName, appId = null;
             int intId;
