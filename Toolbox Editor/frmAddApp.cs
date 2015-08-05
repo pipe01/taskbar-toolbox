@@ -116,7 +116,15 @@ namespace Toolbox_Editor
 
         private void btnBrowse_Click(object sender, EventArgs e)
         {
-
+            openExe.ShowDialog();
+            if (openExe.FileName != null)
+            {
+                currentApp.path = openExe.FileName;
+                updateAppInfo();
+                try{
+                    picIcono.BackgroundImage = Icon.ExtractAssociatedIcon(Util.steam.getAppExecutable(appName)).ToBitmap();
+                }catch (Exception) {    }
+            }
         }
     }
 }
