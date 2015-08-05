@@ -14,6 +14,8 @@ namespace Toolbox_Editor
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
+            Util.steam.downloadSteamAppList(false);
+
             try
             {
                 initToolbox(args);
@@ -23,8 +25,8 @@ namespace Toolbox_Editor
                 return;
             }
 
-            if (Util.tlb == null){ return; }
-                
+            if (Util.tlb == null) { return; }
+
             Application.Run(new frmEditarToolbox());
         }
 

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -106,8 +107,6 @@ namespace Toolbox_Editor
 
         private void delApp()
         {
-            if (File.Exists(Util.getCurrentToolboxPath() + selectedApp.id + ".png"))
-                File.Delete(Util.getCurrentToolboxPath() + selectedApp.id + ".png");
             Util.tlb.appList.Remove(selectedApp.id);
             Util.tlb.save();
             refreshToolbox();
@@ -195,6 +194,11 @@ namespace Toolbox_Editor
         private void frmEditarToolbox_DragDrop(object sender, DragEventArgs e)
         {
             string[] files = (string[])e.Data.GetData(DataFormats.FileDrop);
+        }
+
+        private void frmEditarToolbox_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            
         }
     }
 }

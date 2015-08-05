@@ -33,6 +33,8 @@
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.lbApps = new System.Windows.Forms.ListBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
+            this.picAppIcon = new System.Windows.Forms.PictureBox();
             this.btnAppAplicar = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.txtPath = new System.Windows.Forms.TextBox();
@@ -46,12 +48,10 @@
             this.btnAñadirApp = new System.Windows.Forms.Button();
             this.btnQuitarApp = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.picAppIcon = new System.Windows.Forms.PictureBox();
-            this.label2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAppIcon)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picColor)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -109,6 +109,26 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(314, 111);
             this.panel1.TabIndex = 5;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(43, 41);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(34, 13);
+            this.label2.TabIndex = 8;
+            this.label2.Tag = "@gui.appIcon";
+            this.label2.Text = "Icono";
+            // 
+            // picAppIcon
+            // 
+            this.picAppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.picAppIcon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.picAppIcon.Location = new System.Drawing.Point(8, 31);
+            this.picAppIcon.Name = "picAppIcon";
+            this.picAppIcon.Size = new System.Drawing.Size(32, 32);
+            this.picAppIcon.TabIndex = 7;
+            this.picAppIcon.TabStop = false;
             // 
             // btnAppAplicar
             // 
@@ -223,26 +243,6 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // picAppIcon
-            // 
-            this.picAppIcon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.picAppIcon.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.picAppIcon.Location = new System.Drawing.Point(8, 31);
-            this.picAppIcon.Name = "picAppIcon";
-            this.picAppIcon.Size = new System.Drawing.Size(32, 32);
-            this.picAppIcon.TabIndex = 7;
-            this.picAppIcon.TabStop = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(43, 41);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(34, 13);
-            this.label2.TabIndex = 8;
-            this.label2.Tag = "@gui.appIcon";
-            this.label2.Text = "Icono";
-            // 
             // frmEditarToolbox
             // 
             this.AllowDrop = true;
@@ -262,6 +262,7 @@
             this.MaximizeBox = false;
             this.Name = "frmEditarToolbox";
             this.Text = "Toolbox Editor";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmEditarToolbox_FormClosed);
             this.Load += new System.EventHandler(this.frmEditarToolbox_Load);
             this.DragDrop += new System.Windows.Forms.DragEventHandler(this.frmEditarToolbox_DragDrop);
             this.DragEnter += new System.Windows.Forms.DragEventHandler(this.frmEditarToolbox_DragEnter);
@@ -269,8 +270,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.picIcon)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.picColor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picAppIcon)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.picColor)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

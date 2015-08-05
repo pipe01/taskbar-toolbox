@@ -4,12 +4,14 @@ using System.Drawing;
 using System.IO;
 using ImageMagick;
 using IWshRuntimeLibrary;
+using System.Collections.Generic;
 
 namespace Toolbox_Editor
 {
     class Util
     {
         public static Toolbox tlb;
+        public static SteamSerial steam = new SteamSerial();
 
         public static DialogResult InputBox(string title, string promptText, ref string value)
         {

@@ -43,6 +43,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.picIcono = new System.Windows.Forms.PictureBox();
             this.openImage = new System.Windows.Forms.OpenFileDialog();
+            this.button3 = new System.Windows.Forms.Button();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.openExe = new System.Windows.Forms.OpenFileDialog();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picIcono)).BeginInit();
             this.SuspendLayout();
@@ -66,6 +69,7 @@
             this.btnBrowse.Text = "...";
             this.btnBrowse.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.btnBrowse.UseVisualStyleBackColor = true;
+            this.btnBrowse.Click += new System.EventHandler(this.btnBrowse_Click);
             // 
             // label5
             // 
@@ -189,11 +193,37 @@
             // 
             this.openImage.Filter = "Archivos PNG (*.png)|*png|Todos los archivos (*.*)|*.*";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(147, 4);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 35);
+            this.button3.TabIndex = 26;
+            this.button3.Text = "Juego de Steam";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(13, 171);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(119, 13);
+            this.lblStatus.TabIndex = 27;
+            this.lblStatus.Text = "Cargando informacion...";
+            this.lblStatus.Visible = false;
+            // 
+            // openExe
+            // 
+            this.openExe.Filter = "Archivos ejecutables (*.exe)|*.exe|Todos los archivos (*.*)|*.*";
+            // 
             // frmAddApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(368, 194);
+            this.Controls.Add(this.lblStatus);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.picIcono);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -227,5 +257,8 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.PictureBox picIcono;
         private System.Windows.Forms.OpenFileDialog openImage;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Label lblStatus;
+        private System.Windows.Forms.OpenFileDialog openExe;
     }
 }

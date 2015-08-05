@@ -83,5 +83,40 @@ namespace Toolbox_Editor
                 currentApp.id = txtAppID.Text;
             }
         }
+
+        private async void button3_Click(object sender, EventArgs e)
+        {
+            string appName, appId = null;
+            int intId;
+            Util.InputBox("Añadir aplicacion", "ID del juego de Steam", ref appId);
+            intId = int.Parse(appId);
+            lblStatus.Show();
+            appName = Util.steam.getAppName(intId);
+
+            var shortcut = Util.getShortcut(openShortcut.FileName);
+            currentApp = new App();
+            currentApp.name = appName;
+            string txt = appName.Replace(" ", "").ToLower();
+            currentApp.id = txt;
+            currentApp.path = "steam://rungameid/" + intId;
+            updateAppInfo();
+            try
+            {
+                picIcono.BackgroundImage = Icon.ExtractAssociatedIcon(Util.steam.getAppExecutable(appName)).ToBitmap();
+            }
+            catch (Exception)
+            {
+
+                
+            }
+            
+
+            lblStatus.Hide();
+        }
+
+        private void btnBrowse_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
