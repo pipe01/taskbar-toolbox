@@ -31,7 +31,7 @@ namespace Taskbar_Toolbox
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            Toolbox toolbox1 = new Toolbox();
+            Toolbox_API.Toolbox toolbox1 = new Toolbox_API.Toolbox();
             this.picIcon = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
             this.lblEditar = new System.Windows.Forms.Label();
@@ -99,7 +99,7 @@ namespace Taskbar_Toolbox
             this.Controls.Add(this.picIcon);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ToolboxForm";
-            this.ShowIcon = false;
+            this.ShowInTaskbar = false;
             this.Text = "Form1";
             this.TopMost = true;
             this.TransparencyKey = System.Drawing.Color.Fuchsia;
